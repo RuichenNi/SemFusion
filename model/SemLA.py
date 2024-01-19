@@ -63,6 +63,10 @@ class SemLA(nn.Module):
                * (conf == conf.max(dim=1, keepdim=True)[0])
         pdb.set_trace()
 
+
+        """
+        mask_v [1,4800] bool 
+        """
         mask_v, all_j_ids = mask.max(dim=2)
         b_ids, i_ids = torch.where(mask_v)
         j_ids = all_j_ids[b_ids, i_ids]
